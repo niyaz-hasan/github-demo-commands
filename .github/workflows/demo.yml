@@ -34,11 +34,11 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.9.1
         with:
-          node-version: '17'
+          node-version: '12'
 
       - name: build the app
         run:  |
-              cd React-Portfolio 
+              cd react
               npm install 
               npm run build 
 
