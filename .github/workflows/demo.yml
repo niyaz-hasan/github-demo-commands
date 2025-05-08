@@ -42,7 +42,7 @@ jobs:
               npm install 
               npm run build 
               cp -arp build dist 
-              mkdir dist 
+              mkdir test
 
       # Upload build to artifact 
       - name: Upload build artifact
@@ -50,5 +50,5 @@ jobs:
         with:
            name: build-output
            path: |
-             dist/ 
+             test/ 
           
