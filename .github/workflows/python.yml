@@ -22,13 +22,13 @@ jobs:
           pip install -r requirements.txt
         working-directory: python
 
-      - name: Run tests
+      - name: Run tests and generate report
         run: |
           mkdir -p test-reports
           pytest --junitxml=test-reports/test-results.xml
 
-      - name: Upload build artifact
+      - name: Upload test results artifact
         uses: actions/upload-artifact@v4.6.2
         with:
-          name: pytest-results
-          path: .test-reports/
+          name: python-test-results
+          path: test-reports/
