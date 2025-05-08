@@ -38,7 +38,7 @@ jobs:
 
       - name: build the app
         run:  |
-              cd react 
+              cd React-Portfolio 
               npm install 
               npm run build 
 
