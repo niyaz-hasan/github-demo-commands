@@ -1,0 +1,35 @@
+name: Build && Artifact
+
+on:
+  # Enables manual trigger from the GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Say Hello
+        run: echo Hello, world!
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.9.1
+        with:
+          node-version: '12' 
+
+      - name: Build the app
+        run: |
+          cd react
+          npm install
+          npm run build
+          mkdir -p ../artifact
+          cp -arp build ../artifact/
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: build-output
+          path: artifact/
