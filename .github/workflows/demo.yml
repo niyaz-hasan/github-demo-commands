@@ -34,7 +34,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.9.1
         with:
-          node-version: '20'
+          node-version: '17'
 
       - name: build the app
         run:  |
