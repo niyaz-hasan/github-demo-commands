@@ -31,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v4.6.2
         with:
           name: java-app-jar
-          path: target/*.jar
+          path: target
