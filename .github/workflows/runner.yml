@@ -1,0 +1,21 @@
+name: self hosted runner 
+
+on:
+ # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  # Enables manual trigger from the GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted 
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Say Hello
+        run: echo Hello, world!
