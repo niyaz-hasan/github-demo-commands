@@ -24,11 +24,15 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with Maven
-        run: mvn clean package && ls -la 
+        run: |
+           mvn clean package  
+           ls -la
+           mkdir -p stage
+           cp -arp target stage  
         working-directory: spring-boot-app
 
       - name: Upload  artifact
         uses: actions/upload-artifact@v4.6.2
         with:
           name: java-app-jar
-          path: target
+          path: stage
